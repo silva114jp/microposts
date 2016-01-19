@@ -5,7 +5,7 @@ module SessionsHelper
     #本メソッドは、@current_userを返す
     
     # ||= とは左の値がfalseまたはnilの場合に、右の値を代入する
-    @current_user ||= User.find_by(id:  session[:user_id])
+    @current_user ||= User.find_by(id: session[:user_id])
   end
   
   def logged_in?
