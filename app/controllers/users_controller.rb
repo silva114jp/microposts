@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user,:check_logged_in_user,:is_logged_in_current_user,only: [:show, :edit, :update]
   def new
     @user = User.new
   end
@@ -41,5 +41,18 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def check_logged_in_user
+    # ユーザーがログイン中かチェック
+    logged_in_user
+  end
+  
+  def is_logged_in_current_user
+    # ログイン中のユーザーは自身の情報のみ参照可能
+    if @user != current_user
+      flash[:danger] = "Denied to access"
+      redirect_to root_url
+    end
   end
 end
