@@ -20,6 +20,8 @@ class UsersController < ApplicationController
   
   # ユーザ基本情報詳細画面
   def show
+    # ユーザーの投稿を降順にしてインスタンス化
+    @microposts = @user.microposts.order(created_at: :desc)
   end
   
   # ユーザ基本情報の編集画面

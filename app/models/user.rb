@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
     uniqueness: { case_sensitive: false}
     
   has_secure_password
+  
+  # ユーザーは複数の投稿を持つことができる
+  has_many :microposts
 end
