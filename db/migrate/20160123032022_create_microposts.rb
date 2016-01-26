@@ -5,6 +5,8 @@ class CreateMicroposts < ActiveRecord::Migration
       t.text :content
 
       t.timestamps null: false
+      
+      # 複合インデックス
       t.index [:user_id, :created_at]
     end
   end
