@@ -6,6 +6,12 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section class="user_followings/followers">
+      <ul>
+        <li><%= link_to "Following users", followings_path %></li>
+        <li><%= link_to "Follower users", followers_path %></li>
+      </ul>
+    </section>
   </aside>
   <div class="col-md-8">
     <h3>Profile</h3>

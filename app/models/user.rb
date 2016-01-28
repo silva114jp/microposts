@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     
   has_many :follower_users,
     through: :follower_relationships,
-    source: :follower_id
+    source: :follower
   
   # 他のユーザーをフォローする
   def follow(other_user)

@@ -1,0 +1,8 @@
+<div class="row" style="text-align:center">
+  <h3>Following users(<%= @followings.count %>)</h3>
+  <div class="follow_user_info" style="text-align:center">
+    <% @followings.each do |following| %>
+      <%= render partial: 'shared/user_info', locals: { user: following } %>
+    <% end %>
+  </div>
+</div>
