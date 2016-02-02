@@ -11,7 +11,10 @@ class SessionsController < ApplicationController
       # ユーザーIDをセッション保持し、ユーザの詳細ページへリダイレクトする
       session[:user_id] = @user.id
       flash[:info] = "logged in as #{@user.name}"
-      redirect_to @user
+      
+      # ログイン後は、MicropostFeed画面に遷移する
+      # redirect_to @user
+      redirect_to root_path
     else
       # パスワードが誤っている場合、newテンプレートを表示
       flash[:danger] = 'invalid email/password combination'
