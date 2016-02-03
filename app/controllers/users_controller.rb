@@ -51,6 +51,12 @@ class UsersController < ApplicationController
     @followers = @user.follower_users
   end
   
+  def favorite_microposts
+    # お気に入りの投稿を取得
+    @user = User.find(params[:id])
+    @microposts = @user.favorite_microposts
+  end
+  
   private
   def user_params
     params.require(:user).permit(:name,:email,:country,:password,:password_confirmation)

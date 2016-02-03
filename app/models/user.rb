@@ -29,6 +29,16 @@ class User < ActiveRecord::Base
   has_many :follower_users,
     through: :follower_relationships,
     source: :follower
+    
+  # 一人のユーザーは複数の投稿に対し、お気に入りにすることができる
+  has_many :favorites,
+    class_name: "Favorite",
+    foreign_key: "user_id",
+    dependent: :destroy
+  
+  has_many :favorite_microposts,
+    through: :favorites,
+    source: :micropost_id
   
   # 他のユーザーをフォローする
   def follow(other_user)
