@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   def favorite_microposts
     # お気に入りの投稿を取得
     @user = User.find(params[:id])
-    @microposts = @user.favorite_microposts
+    @favorite_microposts = @user.favorite_microposts
   end
   
   private

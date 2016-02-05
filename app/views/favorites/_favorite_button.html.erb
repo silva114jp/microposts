@@ -1,0 +1,5 @@
+<% if current_user.favorite_microposts.include?(micropost) %>
+  <%= link_to "Added the post to favorite", favorites_path(favorite), method: :delete, remote: true, class: 'btn btn-xs btn-warning' %>
+<% else %>
+  <%= link_to "Add the post to favorite!", favorites_path(micropost), method: :post, remote: true, class: 'btn btn-xs btn-default' %>
+<% end %>

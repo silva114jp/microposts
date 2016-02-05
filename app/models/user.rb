@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   
   has_many :favorite_microposts,
     through: :favorites,
-    source: :micropost_id
+    source: :micropost
   
   # 他のユーザーをフォローする
   def follow(other_user)
@@ -60,6 +60,17 @@ class User < ActiveRecord::Base
     # 他のユーザーがfollowing_usersに含まれているかチェックしています。
     following_users.include?(other_user)
   end
+  
+  # 投稿をお気に入りに追加する
+  #def favorite(micropost)
+  #  favorites.find_or_create_by(micropost_id: micropost.id)
+  #end
+  
+  # 投稿をお気に入りから削除する
+  #def unfavorite(micropost)
+  #  favorite_post = favorites.find_by(micropost_id: micropost.id)
+  #  favorite_post.destroy if favorite_post
+  #end
   
   # user_idがフォローしているユーザーと自分のつぶやきを取得
   def feed_items
