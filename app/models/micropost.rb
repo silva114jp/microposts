@@ -9,7 +9,7 @@ class Micropost < ActiveRecord::Base
     foreign_key: "micropost_id",
     dependent: :destroy
     
-  has_many :favorite_users,
+  has_many :favorite_microposts,
     through: :favorites,
     source: :user
   

@@ -1,0 +1,5 @@
+<!-- レビュー前 -->
+<%# link_to "Add the post to favorite!", favorites_path(micropost), method: :post, remote: true, class: 'btn btn-xs btn-default' %>
+
+<!-- レビュー後 -->
+<%= link_to "Add the post to favorite!", favorites_path(micropost_id: micropost.id), method: :post, remote: true, class: 'btn btn-xs btn-default' %>

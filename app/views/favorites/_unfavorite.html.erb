@@ -1,0 +1,5 @@
+<!-- レビュー前 -->
+<%# link_to "Added the post to favorite", favorites_path(favorite), method: :delete, remote: true, class: 'btn btn-xs btn-warning' %>
+
+<!-- レビュー後 -->
+<%= link_to "Added the post to favorite", favorite_path(current_user.favorites.find_by(micropost_id: micropost.id)), method: :delete, remote: true, class: 'btn btn-xs btn-warning' %>
